@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Boyer-Moore String Matching. """
 
-from typing import NewType, List
+from typing import List, Tuple
 import pprint
 import time
 
@@ -112,7 +112,7 @@ def small_l_prime_array(n_arr: List[int]) -> List[int]:
     return small_l_prime_arr
 
 
-def good_suffix_table(pattern: str) -> (List[int], List[int], List[int]):
+def good_suffix_table(pattern: str) -> Tuple[List[int], List[int], List[int]]:
     """ Return tables needed to apply good suffix rule. """
 
     n_arr = n_array(pattern)
@@ -242,11 +242,8 @@ def visualize(
 
 
 def boyer_moore(
-    pattern: str,
-    bm_obj: NewType("BoyerMoore", BoyerMoore),
-    text: str,
-    sleep_time: float,
-) -> (List[int], int, int):
+    pattern: str, bm_obj: BoyerMoore, text: str, sleep_time: float,
+) -> Tuple[List[int], int, int]:
     """ Do Boyer-Moore matching with visualization """
 
     i = 0
